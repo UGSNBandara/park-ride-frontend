@@ -38,7 +38,7 @@ const LoginModal: React.FC<{open: boolean; onClose: () => void}> = ({open, onClo
             <div style={{fontSize:12,fontWeight:700,color:'#234',marginBottom:6}}>Role</div>
             <div style={{display:'flex',gap:8}}>
               <button type="button" className={`cat-btn ${role === 'manager' ? 'active' : ''}`} onClick={() => setRole('manager')}>Manager</button>
-              <button type="button" className={`cat-btn ${role === 'fireofficer' ? 'active' : ''}`} onClick={() => setRole('fireofficer')}>FireOfficer</button>
+              <button type="button" className={`cat-btn ${role === 'fireofficer' ? 'active' : ''}`} onClick={() => setRole('fireofficer')}>Officer</button>
             </div>
           </div>
 
