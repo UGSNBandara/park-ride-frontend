@@ -17,23 +17,25 @@
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:1rem 2rem;
+  padding:clamp(0.6rem,2.4vh,1.2rem) clamp(1rem,4vw,3rem);
   background:linear-gradient(180deg,#d9eefc,#e9f4ff);
-  /* stretch full width */
-  width: 100%;
+  width:100%;
+  box-sizing:border-box;
+  gap:1rem;
+  flex-wrap:wrap; /* allow nav items to wrap on small screens */
 }
 .brand{
   font-weight:700;
   color:var(--blue);
-  font-size:1.4rem;
+  font-size:clamp(1rem,3.2vw,1.6rem);
 }
 .brand{cursor:pointer}
 .brand:hover{opacity:0.92;transform:translateY(-1px)}
 
-.nav{display:flex;gap:1rem;align-items:center}
-.nav-left{display:flex;gap:1rem;align-items:center}
-.nav-right{display:flex;gap:0.75rem;align-items:center;margin-left:auto}
-.nav-btn{background:transparent;border:1px solid transparent;padding:.5rem .95rem;border-radius:20px;color:var(--blue);font-weight:700;font-size:1rem}
+.nav{display:flex;gap:clamp(0.5rem,1.2vw,1rem);align-items:center;flex-wrap:wrap}
+.nav-left{display:flex;gap:clamp(0.5rem,1.2vw,1rem);align-items:center;flex:1 1 auto;min-width:0}
+.nav-right{display:flex;gap:0.6rem;align-items:center;flex:0 0 auto}
+.nav-btn{background:transparent;border:1px solid transparent;padding:clamp(.35rem,.9vw,.6rem) clamp(.6rem,1.6vw,.95rem);border-radius:20px;color:var(--blue);font-weight:700;font-size:clamp(.9rem,1.6vw,1rem);white-space:nowrap}
 .nav-btn.primary{background:var(--blue);color:#fff;border-color:transparent}
 
 .hero{display:flex;gap:2rem;align-items:flex-start;padding:6vh 6vw;flex:1;flex-wrap:wrap}
@@ -59,11 +61,11 @@
 
 .callout{text-align:center;color:var(--blue);font-weight:900;font-size:clamp(1.4rem,3vw,2rem);text-shadow:0 10px 12px rgba(11,118,255,0.14);margin-top:2rem}
 
-.site-footer{background:var(--blue);color:#fff;padding:1rem 2rem;margin-top:auto;display:flex;align-items:center;justify-content:space-between}
-.site-footer .links{opacity:.9}
-.site-footer .copyright{margin-left:auto}
+.site-footer{background:var(--blue);color:#fff;padding:clamp(0.75rem,2.5vh,1.25rem) clamp(1rem,4vw,2rem);margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.site-footer .links{opacity:.95;flex:1 1 40%}
+.site-footer .copyright{flex:0 0 auto;margin-left:auto}
 
-.footer-actions{display:flex;gap:1.5rem;align-items:center}
+.footer-actions{display:flex;gap:clamp(0.6rem,1.2vw,1.5rem);align-items:center;flex-wrap:wrap}
 .footer-item{background:transparent;padding:0;border-radius:0;cursor:pointer;position:relative;color:rgba(255,255,255,0.95);border:none}
 .footer-item:focus{outline:none}
 .footer-item .tooltip{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 8px);background:#fff;color:#0b2b4a;padding:.45rem .6rem;border-radius:6px;white-space:nowrap;font-size:.85rem;opacity:0;pointer-events:none;transition:opacity .15s ease,transform .15s ease;box-shadow:0 6px 18px rgba(11,118,255,0.12)}
@@ -80,6 +82,14 @@
   .hero-left{order:1;width:100%;}
   .features{flex-direction:column;gap:1rem;padding:1rem 2rem}
   .topbar{padding:0.75rem 1rem}
+}
+
+/* Footer responsiveness: stack and center on narrow screens */
+@media (max-width: 700px) {
+  .site-footer{justify-content:center;text-align:center}
+  .site-footer .links{flex-basis:100%;margin-bottom:.5rem}
+  .site-footer .copyright{flex-basis:100%;margin:0}
+  .footer-actions{justify-content:center}
 }
 
 @media (max-width: 480px) {
